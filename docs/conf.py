@@ -34,7 +34,7 @@ html_title = "wlcov documentation"
 html_show_sourcelink = True
 html_context = {
     "display_github": True,
-    "github_user": "rodriguezmeza",
+    "github_user": "sadirs",
     "github_repo": "wlcov",
     "github_version": "main",
     "conf_py_path": "/docs/",

@@ -1,9 +1,13 @@
 # wlcov
 
+[![Documentation Status](https://readthedocs.org/projects/wlcov/badge/?version=latest)](https://wlcov.readthedocs.io/en/latest/?badge=latest)
+
 `wlcov` computes the Gaussian contribution to weak-lensing three-point
 covariance terms in a harmonic basis on the sphere under the Limber
 approximation.  The repository provides a C command-line executable, a static
 library, a Cython wrapper (`wlcovpy`), and small Python examples.
+
+Documentation: [wlcov.readthedocs.io](https://wlcov.readthedocs.io/en/latest/)
 
 ## Authors
 
