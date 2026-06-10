@@ -1,0 +1,20 @@
+# ----- MAKE FILE module definitions (cosmo_lig) -----
+# Mario A. Rodriguez-Meza, Ciudad de Mexico, 1.05.2026
+#
+#
+
+#B Set of settings
+#
+# COSMOLIB
+ifeq ($(COSMOLIBON),1)
+OPT2 += -DCOSMOLIB
+#B add some control flags
+#E
+COSMOLIB = ../addons/cosmo_lib/
+vpath %.c ./addons/cosmo_lib/
+INCLUDES += -I$(COSMOLIB)
+HEADERFILES += $(wildcard $(COSMOLIB)/*.h)
+EXTERNAL += cosmo.o
+endif
+
+#E

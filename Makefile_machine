@@ -1,0 +1,186 @@
+# ----- MAKE FILE machine definitions -----
+# Mario A. Rodriguez-Meza, Ciudad de Mexico, 01.05.2026
+#
+
+MDIR := $(shell pwd)
+WRKDIR = $(MDIR)/build
+
+.base:
+	if ! [ -e $(WRKDIR) ]; then mkdir $(WRKDIR) ; mkdir $(WRKDIR)/lib; fi;
+	touch build/.base
+
+vpath %.c source:general_lib:getparam:main
+vpath %.o build
+vpath .base build
+
+#B LINES TO ADAPT TO YOUR PLATFORM
+#
+#--------------------------------------------
+# Set other local options to this code
+# 	OTHER OPTIONS :: OPT2
+# Some of this definitions can be set in a particular machine
+#
+# This variable is to show settings
+#   and set the corresponding definitions to the compiler
+OPT2 =
+# The one which will be used by CC is CCFLAG. At some point it gets OPT2 definitions...
+#
+
+#
+# your C compiler: Comment/uncomment as convenient
+#
+# GNU c
+# default is gcc-15,
+# cballys module is working with python 3.13 and gcc-15
+#   check with: 'python -c "import cballys"'
+CC       = gcc
+#CC       = gcc-15
+# With icc (Intel):
+#CC       = icc
+#
+
+#
+#E LINES TO ADAPT TO YOUR PLATFORM
+
+#
+# Nothing to do below. Almost... may be some compiler options should be changed
+#
+
+
+#
+# Your python interpreter.
+# In order to use Python 3, you can manually
+# substitute python3 to python in the line below, or you can simply
+# add a compilation option on the terminal command line:
+# "PYTHON=python3 make all" (THanks to Marius Millea for pyhton3
+# compatibility)
+PYTHON ?= python
+
+# your optimization flag
+# clang-12: warning: -O4 is equivalent to -O3 [-Wdeprecated]
+#OPTFLAG = -O4 -ffast-math #-march=native
+OPTFLAG = -O3 -ffast-math #-march=native
+#OPTFLAG = -Ofast -ffast-math #-march=native
+#OPTFLAG = -fast
+
+# your openmp flag (comment for compiling without openmp)
+ifeq ($(OPENMPMACHINE),1)
+OMPFLAG   = -fopenmp
+#OMPFLAG   = -mp -mp=nonuma -mp=allcores -g
+#OMPFLAG   = -openmp
+endif
+
+# all other compilation flags
+CCFLAG = -g -fPIC
+LDFLAG = -g -fPIC
+
+# pass current working directory to the code
+CCFLAG += -D__WLCOVDIR__='"$(MDIR)"'
+
+# where to find include files *.h
+INCLUDES = -I../include
+HEADERFILES = $(wildcard ./include/*.h)
+
+#
+MLIBS = -lm
+#
+
+# your tool for creating static libraries:
+AR        = ar rv
+
+# automatically add external programs if needed. First, initialize to blank.
+EXTERNAL =
+
+#
+ifeq ($(OPENMPMACHINE),1)
+OMPCODE = -DOPENMPCODE
+OPT2 += $(OMPCODE)
+MLIBS += -lgomp
+endif
+#
+
+#B ADDONS
+#
+#B Do not use any of these flags.
+#   Are intended for developing and debuging purposes.
+#
+# To print some useful debuggin info set to 1. Else 0
+#   acts also as (thoroughly )DIAGNOSTICS flag...
+DEBUGON = 0
+DEBUGCOMPILINGON = 0
+DEBUGTRACKINGON = 0
+#
+#E
+#
+ifeq ($(DEBUGCOMPILINGON),1)
+OPT2 += -Wall
+endif
+ifeq ($(DEBUGON),1)
+OPT2 += -DDEBUG
+endif
+ifeq ($(DEBUGTRACKINGON),1)
+OPT2 += -DDEBUGTRACKING
+endif
+#
+ifeq ($(ADDONSON),1)
+OPT2 += -DADDONS
+# addons definitions
+include $(MACHINES_DIR)/addons/Makefile_addons
+#
+endif
+#E ADDONS
+
+#
+#B GETPARAM section
+GETPARAM = getparam
+vpath %.c $(GETPARAM)
+INCLUDES += -I../$(GETPARAM)
+EXTERNAL += getparam.o
+#E
+
+#
+#B GENERALLIB section
+GENERALLIB = general_lib
+vpath %.c $(GENERALLIB)
+INCLUDES += -I../$(GENERALLIB)
+HEADERFILES += $(wildcard ../general_lib/*.h)
+EXTERNAL += clib.o
+#E
+
+
+# ---------------------------------------------
+# GSL DEFINITIONS
+#
+ifeq ($(USEGSL),1)
+OPT2 += -DUSEGSL
+
+GSL_CONFIG ?= gsl-config
+
+# Allow user override:
+#   GSL_INCLUDE=/path/include GSL_LIB=/path/lib make all
+ifneq ($(GSL_INCLUDE),)
+    GSL_CFLAGS = -I$(GSL_INCLUDE)
+else
+    GSL_CFLAGS = $(shell $(GSL_CONFIG) --cflags 2>/dev/null)
+endif
+
+ifneq ($(GSL_LIB),)
+    GSL_LDFLAGS = -L$(GSL_LIB)
+    GSL_LIBS = -lgsl -lgslcblas
+else
+    GSL_LDFLAGS =
+    GSL_LIBS = $(shell $(GSL_CONFIG) --libs 2>/dev/null)
+endif
+
+CCFLAG += $(GSL_CFLAGS)
+LDFLAG += $(GSL_LDFLAGS)
+MLIBS += $(GSL_LIBS)
+endif
+# ---------------------------------------------
+
+
+CCFLAG += $(OPT2)
+
+%.o: %.c .base $(HEADERFILES)
+	cd $(WRKDIR);$(CC) $(OPTFLAG) $(OMPFLAG) $(CCFLAG) $(INCLUDES) -c ../$< -o $*.o
+

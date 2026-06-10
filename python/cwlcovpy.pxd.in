@@ -1,0 +1,122 @@
+# Set of declarations from C to python
+
+from libc.stdio cimport FILE
+from libc.time cimport clock_t
+from libc.stddef cimport size_t
+
+cdef extern from "wlcov.h":
+
+    cdef char[10] _VERSION_
+    ctypedef char FileArg[1024]
+    ctypedef char ErrorMsg[2048]
+    ctypedef char FileName[1256]
+
+    size_t sizeof_cmdline_data()
+    size_t sizeof_global_data()
+
+    cdef struct cmdline_data:
+        double r
+        double theta1
+        double thetap1
+        double theta2
+        double thetap2
+        double ellmin
+        double ellmax
+        char * clsfile
+        int m
+        int mp
+        int ppp
+        
+        int Nr
+        double rmin
+        double rmax
+        
+        char * rootDir
+        short verbose
+        short verbose_log
+        int numthreads
+        char * options
+        
+        char * version
+        char * paramfile
+
+{{CMDLINE_CLASSLIB_FIELDS}}
+{{CMDLINE_COSMOLIB_FIELDS}}
+
+    cdef struct global_data:
+        double cpuinit
+        long cpurealinit
+        clock_t time
+        char * headline0
+        char * headline1
+        char * headline2
+        char * headline3
+        FILE * outlog
+        char mode[2]
+        
+        int fsky
+        int n_data
+        
+        unsigned char cmd_allocated
+        unsigned char gd_allocated
+        unsigned char rootDirFlagFree
+        unsigned char optionsFlag
+        unsigned char flagPrint
+        unsigned char rootDirFlag
+        unsigned char clsfileFlag
+
+        double cputotalinout
+        double cputotal
+        long bytes_tot
+        char logfilePath[1024]
+        char tmpDir[1024]
+        
+        double ell_data[10000]
+        double Cls_data[10000]
+        double intval
+
+{{GLOBAL_CLASSLIB_FIELDS}}
+{{GLOBAL_COSMOLIB_FIELDS}}
+        
+    cdef struct file_content:
+        char * filename
+        int size
+        FileArg * name
+        FileArg * value
+        short * read
+
+#B wlcov headers
+    cdef int FAILURE
+    cdef int FALSE
+    cdef int TRUE
+
+    int input_read_from_file(void*, void*, void*, char*)
+    int StartRun_Common(void*, void*);
+    int PrintParameterFile(void*, void*, char*)
+    int StartOutput(void*)
+    int SetNumberThreads(void*)
+    int MainLoop(void*, void*);
+    int EndRun(void*, void*);
+
+
+#B PXD functions
+
+#B flags
+#E
+
+#B parameters
+    int get_nthreads(void*, int*)
+#E parameters
+
+#B gd values
+    int get_integral(void*, double*)
+#E gd values
+
+#B free memory
+    void EndRun_FreeMemory_cmd(void*, void*)
+    void EndRun_FreeMemory_gd(void*, void*)
+#E
+
+#E PXD functions
+
+#E wlcov headers

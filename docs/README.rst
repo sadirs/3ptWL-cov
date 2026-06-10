@@ -1,0 +1,84 @@
+wlcov: Weak-Lensing Covariance Computation
+==========================================
+
+Author: Sofia Samario-Nava, Alejandro Aviles, and contributors
+
+For source code and issue tracking, see
+https://github.com/rodriguezmeza/wlcov.
+
+Introduction
+------------
+
+``wlcov`` is a C code for computing the Gaussian contribution to
+weak-lensing three-point covariance terms in a harmonic basis on the sphere
+within the Limber approximation.  The repository contains a command-line
+executable, a static C library, a Cython wrapper, and small Python examples.
+
+Compiling and Getting Started
+-----------------------------
+
+The standard source build creates the executable ``wlcov``, the static library
+``libwlcov.a``, and the Python extension ``wlcovpy``::
+
+    python3 -m pip install --user numpy Cython scipy
+    make clean
+    make PYTHON=python3 all
+
+To check that the code runs, type from the repository root::
+
+    ./wlcov clsfile=tests/input/Cls_ep2.txt rootDir=Output_quick \
+       ellmax=25 ppp=4 Nr=8 rmin=0.00232711 rmax=0.02 \
+       verbose=0 verbose_log=0
+
+The run writes a used-values parameter file under ``Output_quick`` and prints
+the numerical integration results to standard output.
+
+Documentation Builds
+--------------------
+
+From the repository root, install documentation dependencies and build the
+HTML, man, and PDF outputs::
+
+    python3 -m pip install --user -r docs/requirements.txt
+    cd docs
+
+    make html
+    make man
+    make latexpdf
+
+The generated artifacts are written to:
+
+* ``docs/_build/html/index.html``
+* ``docs/_build/man/wlcov.1``
+* ``docs/_build/latex/wlcov.pdf``
+
+The legacy hand-written man page is also kept in ``docs/man`` and can be
+converted to HTML with::
+
+    cd docs/man
+    ./makehtml.sh
+
+Configuration
+-------------
+
+Build-time switches are controlled by ``Makefile_settings`` and
+``Makefile_machine``.  The most important settings are ``USEGSL``,
+``OPENMPMACHINE``, and ``ADDONSON``.  Runtime parameters can be supplied as
+``name=value`` command-line tokens or in a parameter file.
+
+Python
+------
+
+The Python wrapper is imported as::
+
+    from wlcovpy import wlcov
+
+A compact wrapper example is available in ``docs/examples/python_wrapper.py``.
+
+License
+-------
+
+``wlcov`` is distributed under the MIT license.  If you use this program in
+research that results in publications, please cite Sofia Samario et al.,
+arXiv:2506.19811, and record the code version, compiler, GSL version, and
+runtime configuration used for the analysis.

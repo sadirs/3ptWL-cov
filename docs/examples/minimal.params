@@ -1,0 +1,16 @@
+r = 0.01
+theta1 = 0.01
+theta2 = 0.012
+thetap1 = 0.011
+thetap2 = 0.013
+m = 0
+mp = 0
+ppp = 4
+ellmin = 1
+ellmax = 25
+clsfile = tests/input/Cls_ep2.txt
+rootDir = Output_paramfile
+numberThreads = 1
+verbose = 0
+verbose_log = 0
+options =
