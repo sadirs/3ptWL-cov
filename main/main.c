@@ -16,7 +16,7 @@
  Comments and notes:
  References: Zeno project, Gadget, CLASS, NR, GSL...
  github: https://github.com/Ssamario/3PCF.CovMatrix-WL &
-         https://github.com/rodriguezmeza/wlcov
+         https://github.com/sadirs/3ptWL-cov
  Publication: cite: (ArXiv ePrint: 2506.19811)
  ==============================================================================*/
 //        1          2          3          4        ^ 5          6          7
@@ -59,4 +59,3 @@ int main (int argc, char *argv[])
 
     return SUCCESS;
 }
-

@@ -37,7 +37,7 @@ adds ``tests/python`` to ``sys.path``, and creates the local plot directory.
        for path in (start, *start.parents):
            if (path / "tests" / "python" / "covariance_example.py").exists():
                return path
-       raise RuntimeError("Run this notebook from inside the wlcov repository.")
+       raise RuntimeError("Run this notebook from inside the 3ptWL-cov repository.")
 
 
    REPO_ROOT = find_repo_root()

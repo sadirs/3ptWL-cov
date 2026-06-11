@@ -1,18 +1,22 @@
-wlcov: Weak-Lensing Covariance Computation
-==========================================
+3ptWL-cov: Weak-Lensing Covariance Computation
+==============================================
 
 Author: Sofia Samario-Nava, Alejandro Aviles, and contributors
 
 For source code and issue tracking, see
-https://github.com/rodriguezmeza/wlcov.
+https://github.com/sadirs/3ptWL-cov.
 
 Introduction
 ------------
 
-``wlcov`` is a C code for computing the Gaussian contribution to
+3ptWL-cov is a C code for computing the Gaussian contribution to
 weak-lensing three-point covariance terms in a harmonic basis on the sphere
 within the Limber approximation.  The repository contains a command-line
 executable, a static C library, a Cython wrapper, and small Python examples.
+
+The project was previously published as ``wlcov``.  Its command-line
+executable, static library, Python extension, and public APIs retain the
+existing names ``wlcov``, ``libwlcov.a``, and ``wlcovpy``.
 
 Compiling and Getting Started
 -----------------------------
@@ -50,7 +54,7 @@ The generated artifacts are written to:
 
 * ``docs/_build/html/index.html``
 * ``docs/_build/man/wlcov.1``
-* ``docs/_build/latex/wlcov.pdf``
+* ``docs/_build/latex/3ptWL-cov.pdf``
 
 The legacy hand-written man page is also kept in ``docs/man`` and can be
 converted to HTML with::
@@ -78,7 +82,7 @@ A compact wrapper example is available in ``docs/examples/python_wrapper.py``.
 License
 -------
 
-``wlcov`` is distributed under the MIT license.  If you use this program in
+3ptWL-cov is distributed under the MIT license.  If you use this program in
 research that results in publications, please cite Sofia Samario et al.,
 arXiv:2506.19811, and record the code version, compiler, GSL version, and
 runtime configuration used for the analysis.

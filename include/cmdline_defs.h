@@ -40,7 +40,7 @@ and if necessary in
 #define _cmdline_defs_h
 
 #define HEAD1	"LSST/S3"
-#define HEAD2	"wlcov code for computing covariance matrix (2,3)pcf"
+#define HEAD2	"3ptWL-cov: weak-lensing three-point covariance"
 #define HEAD3	"..."
 
 string defv[] = {  ";"HEAD1": " HEAD2 "\n\t " HEAD3,

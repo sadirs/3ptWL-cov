@@ -1,9 +1,9 @@
-.. wlcov documentation master file
+.. 3ptWL-cov documentation master file
 
-wlcov
-=====
+3ptWL-cov
+=========
 
-``wlcov`` computes the Gaussian contribution to weak-lensing three-point
+**3ptWL-cov** computes the Gaussian contribution to weak-lensing three-point
 covariance terms in a harmonic basis on the sphere under the Limber
 approximation.  The project provides:
 
@@ -11,6 +11,10 @@ approximation.  The project provides:
 * a static library, ``libwlcov.a``;
 * a Cython wrapper, ``wlcovpy``;
 * small Python utilities for scripted covariance workflows.
+
+The project was previously published as ``wlcov``.  To preserve compatibility,
+the executable, static library, Python extension, and public APIs continue to
+use the names ``wlcov``, ``libwlcov.a``, and ``wlcovpy``.
 
 The documentation is organized in the style of scientific Python projects such
 as the `emcee documentation`_: start with installation and the quickstart, then
@@ -72,7 +76,7 @@ Or use the Python wrapper:
 How to Use This Guide
 ---------------------
 
-If you are installing or running ``wlcov`` for the first time, read
+If you are installing or running the 3ptWL-cov executable for the first time, read
 :doc:`install` and :doc:`quickstart`.  If you are preparing production runs,
 read the parameter and output pages before scaling up the integration range.
 Developers should also read :doc:`development` and :doc:`troubleshooting`,

@@ -1,13 +1,17 @@
-# wlcov
+# 3ptWL-cov
 
-[![Documentation Status](https://readthedocs.org/projects/wlcov/badge/?version=latest)](https://wlcov.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/3ptwl-cov/badge/?version=latest)](https://3ptwl-cov.readthedocs.io/en/latest/?badge=latest)
 
-`wlcov` computes the Gaussian contribution to weak-lensing three-point
+**3ptWL-cov** computes the Gaussian contribution to weak-lensing three-point
 covariance terms in a harmonic basis on the sphere under the Limber
 approximation.  The repository provides a C command-line executable, a static
 library, a Cython wrapper (`wlcovpy`), and small Python examples.
 
-Documentation: [wlcov.readthedocs.io](https://wlcov.readthedocs.io/en/latest/)
+Documentation: [3ptwl-cov.readthedocs.io](https://3ptwl-cov.readthedocs.io/en/latest/)
+
+> **Compatibility note:** The project was previously published as `wlcov`.
+> The executable (`wlcov`), static library (`libwlcov.a`), Python extension
+> (`wlcovpy`), and public APIs retain their existing names.
 
 ## Authors
 
@@ -109,7 +113,7 @@ Generated outputs:
 
 - `docs/_build/html/index.html`
 - `docs/_build/man/wlcov.1`
-- `docs/_build/latex/wlcov.pdf`
+- `docs/_build/latex/3ptWL-cov.pdf`
 
 ## Configuration
 
@@ -134,4 +138,4 @@ analysis.
 
 ## License
 
-`wlcov` is distributed under the MIT license.  See [LICENSE](LICENSE).
+3ptWL-cov is distributed under the MIT license.  See [LICENSE](LICENSE).

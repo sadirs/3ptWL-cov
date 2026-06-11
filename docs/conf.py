@@ -1,4 +1,4 @@
-"""Sphinx configuration for the wlcov documentation."""
+"""Sphinx configuration for the 3ptWL-cov documentation."""
 
 from __future__ import annotations
 
@@ -9,9 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-project = "wlcov"
+project = "3ptWL-cov"
 author = "Sofia Samario-Nava, Alejandro Aviles, and contributors"
-copyright = "2026, wlcov contributors"
+copyright = "2026, 3ptWL-cov contributors"
 release = "1.0.0"
 version = release
 root_doc = "index"
@@ -30,12 +30,12 @@ templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "man/wlcov.html"]
 
 html_theme = "sphinx_rtd_theme"
-html_title = "wlcov documentation"
+html_title = "3ptWL-cov documentation"
 html_show_sourcelink = True
 html_context = {
     "display_github": True,
     "github_user": "sadirs",
-    "github_repo": "wlcov",
+    "github_repo": "3ptWL-cov",
     "github_version": "main",
     "conf_py_path": "/docs/",
 }
@@ -47,7 +47,7 @@ man_pages = [
     (
         "index",
         "wlcov",
-        "wlcov documentation",
+        "3ptWL-cov command-line reference",
         [author],
         1,
     )
@@ -56,8 +56,8 @@ man_pages = [
 latex_documents = [
     (
         "index",
-        "wlcov.tex",
-        "wlcov Documentation",
+        "3ptWL-cov.tex",
+        "3ptWL-cov Documentation",
         author,
         "manual",
     )

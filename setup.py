@@ -288,8 +288,8 @@ class build_ext(cython_build_ext):
 setup(
     name='wlcovpy',
     version=VERSION,
-    description='Python interface to the covariance code wlcov',
-    url='http://github.com/rodriguezmeza/wlcov.git',
+    description='Python interface to the 3ptWL-cov covariance code',
+    url='https://github.com/sadirs/3ptWL-cov',
     cmdclass={'build_ext': build_ext},
     ext_modules=[wlcovpy_ext],
 )

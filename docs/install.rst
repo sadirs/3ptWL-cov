@@ -117,7 +117,7 @@ The generated artifacts are:
 
 * ``docs/_build/html/index.html``;
 * ``docs/_build/man/wlcov.1``;
-* ``docs/_build/latex/wlcov.pdf``.
+* ``docs/_build/latex/3ptWL-cov.pdf``.
 
 ``make latexpdf`` requires a LaTeX installation with ``latexmk`` and
 ``pdflatex`` available on ``PATH``.
