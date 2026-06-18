@@ -9,10 +9,6 @@ library, a Cython wrapper (`wlcovpy`), and small Python examples.
 
 Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/latest/)
 
-> **Compatibility note:** The project was previously published as `wlcov`.
-> The executable (`wlcov`), static library (`libwlcov.a`), Python extension
-> (`wlcovpy`), and public APIs retain their existing names.
-
 ## Authors
 
 - **Sofia Samario-Nava**  

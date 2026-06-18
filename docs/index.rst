@@ -12,10 +12,6 @@ approximation.  The project provides:
 * a Cython wrapper, ``wlcovpy``;
 * small Python utilities for scripted covariance workflows.
 
-The project was previously published as ``wlcov``.  To preserve compatibility,
-the executable, static library, Python extension, and public APIs continue to
-use the names ``wlcov``, ``libwlcov.a``, and ``wlcovpy``.
-
 The documentation is organized in the style of scientific Python projects such
 as the `emcee documentation`_: start with installation and the quickstart, then
 move into the user guide, tutorials, API reference, and troubleshooting pages.

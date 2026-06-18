@@ -6,6 +6,14 @@ Author: Sofia Samario-Nava, Alejandro Aviles, and contributors
 For source code and issue tracking, see
 https://github.com/sadirs/3ptWL-cov.
 
+Related Projects
+----------------
+
+* `3ptWL-mod <https://github.com/sadirs/3ptWL-mod>`_: models weak-lensing
+  three-point correlation functions using perturbative and halo-model methods.
+* `cTreeBalls <https://github.com/rodriguezmeza/cTreeBalls>`_: measures two- and
+  three-point correlation functions from point catalogs and scalar fields.
+
 Introduction
 ------------
 
@@ -13,10 +21,6 @@ Introduction
 weak-lensing three-point covariance terms in a harmonic basis on the sphere
 within the Limber approximation.  The repository contains a command-line
 executable, a static C library, a Cython wrapper, and small Python examples.
-
-The project was previously published as ``wlcov``.  Its command-line
-executable, static library, Python extension, and public APIs retain the
-existing names ``wlcov``, ``libwlcov.a``, and ``wlcovpy``.
 
 Compiling and Getting Started
 -----------------------------
