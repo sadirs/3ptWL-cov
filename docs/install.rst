@@ -29,17 +29,23 @@ On Debian or Ubuntu, install the native compiler and GSL dependency:
 
 .. prompt:: bash
 
-   sudo apt-get install build-essential libgsl-dev
+   sudo apt-get update
+   sudo apt-get install build-essential libgsl-dev python3-dev
 
-Install ``wlcovpy`` from PyPI:
+Install the release documented by these pages from PyPI:
+
+.. prompt:: bash
+
+   python3 -m pip install "wlcovpy==1.0.1"
+
+The pip build installs NumPy and SciPy when needed, generates the matching
+Cython declarations, builds the native library internally, and installs the
+``wlcovpy`` extension. No separate ``make`` command is required. Omit the
+version pin when you intentionally want the newest published release:
 
 .. prompt:: bash
 
    python3 -m pip install wlcovpy
-
-The pip build installs NumPy and SciPy when needed, generates the matching
-Cython declarations, builds the native library internally, and installs the
-``wlcovpy`` extension. No separate ``make`` command is required.
 
 To install the unreleased development version instead:
 
@@ -107,6 +113,16 @@ does not change execution.
 
 Verify the Installation
 -----------------------
+
+Verify the installed Python distribution and importable extension:
+
+.. prompt:: bash
+
+   python3 -c "from importlib.metadata import version; from wlcovpy import wlcov; print(version('wlcovpy'))"
+
+For ``wlcovpy==1.0.1``, this prints ``1.0.1``. The following command-line
+checks apply when working from a source checkout that also built the optional
+standalone executable.
 
 Check the command-line interface:
 

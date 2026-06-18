@@ -1,5 +1,33 @@
-Notebook Covariance-Matrix Workflow
+Covariance-Matrix Notebook Workflow
 ===================================
+
+Run the Published Package in Colab
+----------------------------------
+
+.. image:: https://colab.research.google.com/assets/colab-badge.svg
+   :target: https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb
+   :alt: Open the covariance-matrix tutorial in Google Colab
+
+The `version-controlled Colab notebook`_ is the simplest public reproduction
+path. It does not require a repository checkout. In a fresh Colab runtime it:
+
+* installs ``build-essential``, ``libgsl-dev``, and ``python3-dev``;
+* installs the published ``wlcovpy==1.0.1`` package from PyPI;
+* downloads ``Cls_ep2.txt`` and ``theta_array.txt`` from the matching
+  ``v1.0.1`` GitHub release tag;
+* carries its covariance helper functions directly in the notebook;
+* computes and validates the finite, symmetric ``6 x 6`` compact covariance
+  matrix;
+* saves the numerical matrix and both diagnostic figures in the Colab working
+  directory.
+
+The version pin and tagged fixture URLs are intentional: they prevent a later
+package or input-file change from silently altering this documented result.
+The optional full R2D2 configuration is included but disabled by default
+because it performs many more native integrations.
+
+Repository-Local Notebook
+-------------------------
 
 This page mirrors the structure of ``tests/notebooks/example.ipynb``.  The
 documentation is static, but the sections follow the same order as the
@@ -9,6 +37,9 @@ plotting, and the larger R2D2 reference output.
 The notebook uses the convenience functions in
 ``tests/python/covariance_example.py`` to wrap repeated ``wlcovpy`` calls in
 NumPy, then saves diagnostic plots in ``tests/notebooks/plots``.
+
+Unlike the self-contained Colab notebook, this development notebook imports
+the helper module and input files directly from the source checkout.
 
 Open the interactive notebook from the repository root after building
 ``wlcovpy``:
@@ -249,3 +280,5 @@ For larger matrices, make the temporary ``C_ell`` filename and output
 directory unique for each process before parallelizing the workflow.  The
 current example uses a shared ``Cls_temp.txt`` temporary file, so it should be
 run serially unless that filename is changed.
+
+.. _version-controlled Colab notebook: https://github.com/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb

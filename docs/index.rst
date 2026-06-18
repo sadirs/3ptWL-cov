@@ -26,7 +26,7 @@ After installing GSL, install the Python interface from PyPI:
 
 .. prompt:: bash
 
-   python3 -m pip install wlcovpy
+   python3 -m pip install "wlcovpy==1.0.1"
 
 No separate ``make`` step is needed for Python use. To build the standalone C
 executable from a source checkout:
@@ -74,6 +74,16 @@ Or use the Python wrapper:
    })
    cputime = model.Run()
    model.clean_all()
+
+For a zero-checkout covariance-matrix example, launch the version-controlled
+notebook in Google Colab:
+
+.. image:: https://colab.research.google.com/assets/colab-badge.svg
+   :target: https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb
+   :alt: Open the covariance-matrix tutorial in Google Colab
+
+The notebook installs the published ``wlcovpy==1.0.1`` package and downloads
+its inputs from the matching ``v1.0.1`` release tag.
 
 How to Use This Guide
 ---------------------

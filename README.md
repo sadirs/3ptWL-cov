@@ -1,6 +1,8 @@
 # 3ptWL-cov
 
 [![Documentation Status](https://readthedocs.org/projects/3ptwl-cov/badge/?version=latest)](https://3ptwl-cov.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://img.shields.io/pypi/v/wlcovpy.svg)](https://pypi.org/project/wlcovpy/)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb)
 
 **3ptWL-cov** computes the Gaussian contribution to weak-lensing three-point
 covariance terms in a harmonic basis on the sphere under the Limber
@@ -23,10 +25,11 @@ Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/lat
 
 ## Install with pip
 
-Install the GSL development library first. On Debian or Ubuntu:
+Install the native build dependencies first. On Debian or Ubuntu:
 
 ```bash
-sudo apt-get install build-essential libgsl-dev
+sudo apt-get update
+sudo apt-get install build-essential libgsl-dev python3-dev
 ```
 
 Then install the Python interface from PyPI:
@@ -36,11 +39,24 @@ python3 -m pip install wlcovpy
 ```
 
 This installs the `wlcovpy` module and compiles its native extension; no
-separate `make` command is needed. To install the unreleased development
-version, use `python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"`.
-From an existing source checkout, use `python3 -m pip install .`. The standalone
+separate `make` command is needed. For a version-matched reproduction of the
+current documentation, install `python3 -m pip install "wlcovpy==1.0.1"`.
+To install the unreleased development version, use
+`python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"`. From an
+existing source checkout, use `python3 -m pip install .`. The standalone
 `wlcov` command-line executable is built separately with `make`, as described
 below.
+
+## Run the covariance tutorial in Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb)
+
+The hosted notebook requires no repository checkout. It installs the native
+GSL build dependency and `wlcovpy==1.0.1`, downloads the input fixtures from
+the matching `v1.0.1` release tag, and reproduces the documented finite,
+symmetric `6 x 6` covariance matrix and diagnostic plots. The larger R2D2
+paper-data configuration is included behind an explicit opt-in switch because
+it performs many more native integrations.
 
 ## Native C build (optional)
 
@@ -109,9 +125,11 @@ finally:
     model.clean_all()
 ```
 
-See `docs/examples/python_wrapper.py`, `tests/python/`, and the main notebook
-example in `tests/notebooks/example.ipynb` for runnable examples.  The notebook
-saves its figures in `tests/notebooks/plots/`.
+See `docs/examples/python_wrapper.py`, `tests/python/`, the
+[self-contained Colab notebook](docs/examples/wlcovpy_covariance_colab.ipynb),
+and the source-checkout notebook in `tests/notebooks/example.ipynb` for
+runnable examples. The source-checkout notebook saves its figures in
+`tests/notebooks/plots/`.
 
 ## Documentation
 
