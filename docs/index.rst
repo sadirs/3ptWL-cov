@@ -22,11 +22,11 @@ developer notes for future maintainers.
 Basic Usage
 -----------
 
-After installing GSL, install the Python interface directly from GitHub:
+After installing GSL, install the Python interface from PyPI:
 
 .. prompt:: bash
 
-   python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+   python3 -m pip install wlcovpy
 
 No separate ``make`` step is needed for Python use. To build the standalone C
 executable from a source checkout:

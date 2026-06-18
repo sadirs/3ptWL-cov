@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 project = "3ptWL-cov"
 author = "Sofia Samario-Nava, Alejandro Aviles, and contributors"
 copyright = "2026, 3ptWL-cov contributors"
-release = "1.0.0"
+release = "1.0.1"
 version = release
 root_doc = "index"
 

@@ -29,16 +29,18 @@ Install the GSL development library first. On Debian or Ubuntu:
 sudo apt-get install build-essential libgsl-dev
 ```
 
-Then install the Python interface directly from GitHub:
+Then install the Python interface from PyPI:
 
 ```bash
-python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+python3 -m pip install wlcovpy
 ```
 
 This installs the `wlcovpy` module and compiles its native extension; no
-separate `make` command is needed. From an existing source checkout, use
-`python3 -m pip install .` instead. The standalone `wlcov` command-line
-executable is built separately with `make`, as described below.
+separate `make` command is needed. To install the unreleased development
+version, use `python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"`.
+From an existing source checkout, use `python3 -m pip install .`. The standalone
+`wlcov` command-line executable is built separately with `make`, as described
+below.
 
 ## Native C build (optional)
 

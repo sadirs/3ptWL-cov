@@ -87,7 +87,7 @@ string defv[] = {  ";"HEAD1": " HEAD2 "\n\t " HEAD3,
 #endif
 //E
 
-    "Version=1.0.0",		    ";S. Samario-Nava, A. Aviles et al. (2026--)",
+    "Version=1.0.1",		    ";S. Samario-Nava, A. Aviles et al. (2026--)",
     NULL,
 };
 

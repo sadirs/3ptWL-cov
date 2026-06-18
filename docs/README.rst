@@ -29,9 +29,9 @@ executable, a static C library, a Cython wrapper, and small Python examples.
 Installing and Getting Started
 ------------------------------
 
-After installing GSL, install the Python interface directly from GitHub::
+After installing GSL, install the Python interface from PyPI::
 
-    python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+    python3 -m pip install wlcovpy
 
 This builds and installs ``wlcovpy`` without a separate ``make`` command.
 
