@@ -1,5 +1,6 @@
 include LICENSE
 include README.md
+include pyproject.toml
 include Makefile
 include Makefile_machine
 include Makefile_settings

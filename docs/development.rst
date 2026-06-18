@@ -58,6 +58,8 @@ Before opening a pull request, run:
    python3 python/covariance_example.py --Cls-file input/Cls_ep2.txt \
       --theta-array input/theta_array.txt --dim 20 --rows 7 --diagonals 4
    cd ..
+   python3 -m build --sdist
+   python3 -m twine check dist/*
    python3 -m sphinx -b html docs docs/_build/html
 
 Remove generated outputs before committing unless they are intentional test
@@ -92,6 +94,24 @@ Write documentation for users first, then developers:
 * document units and file formats at the point of use;
 * keep known limitations visible rather than hiding them in code comments.
 
+Publishing ``wlcovpy``
+----------------------
+
+Releases use PyPI Trusted Publishing, so no long-lived PyPI token is stored in
+GitHub. The publisher configured on PyPI must use these values:
+
+* PyPI project name: ``wlcovpy``;
+* GitHub owner: ``sadirs``;
+* repository: ``3ptWL-cov``;
+* workflow: ``publish.yml``;
+* environment: ``pypi``.
+
+Update ``_VERSION_`` in ``addons/class_lib/common.h``, the displayed version in
+``include/cmdline_defs.h``, and ``release`` in ``docs/conf.py``. Validate the
+source distribution, merge the release changes into ``main``, and publish a
+GitHub release tagged with the same version. Publishing the GitHub release
+triggers ``.github/workflows/publish.yml``.
+
 Remaining Hardening Work
 ------------------------
 
@@ -101,5 +121,3 @@ items remain good candidates for follow-up issues:
 * add an automated test runner for the compact CLI and Python examples;
 * move structured numerical results from stdout into machine-readable outputs;
 * replace unchecked ``system`` calls and unsafe ``sprintf`` patterns;
-* modernize packaging with a ``pyproject.toml`` build system once the native
-  library build is represented cleanly.

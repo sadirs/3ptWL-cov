@@ -14,7 +14,7 @@ Required build tools:
 * a C compiler such as ``gcc``;
 * the `GNU Scientific Library`_ headers and libraries;
 * Python 3 with ``pip``;
-* ``git`` when installing directly from GitHub.
+* ``git`` only when installing the development version from GitHub.
 
 Recommended documentation tools:
 
@@ -31,15 +31,21 @@ On Debian or Ubuntu, install the native compiler and GSL dependency:
 
    sudo apt-get install build-essential libgsl-dev
 
-Install ``wlcovpy`` directly from GitHub:
+Install ``wlcovpy`` from PyPI:
 
 .. prompt:: bash
 
-   python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+   python3 -m pip install wlcovpy
 
 The pip build installs NumPy and SciPy when needed, generates the matching
 Cython declarations, builds the native library internally, and installs the
 ``wlcovpy`` extension. No separate ``make`` command is required.
+
+To install the unreleased development version instead:
+
+.. prompt:: bash
+
+   python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
 
 From an existing source checkout, the equivalent command is:
 
