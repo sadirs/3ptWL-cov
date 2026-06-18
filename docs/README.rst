@@ -26,13 +26,18 @@ weak-lensing three-point covariance terms in a harmonic basis on the sphere
 within the Limber approximation.  The repository contains a command-line
 executable, a static C library, a Cython wrapper, and small Python examples.
 
-Compiling and Getting Started
------------------------------
+Installing and Getting Started
+------------------------------
 
-The standard source build creates the executable ``wlcov``, the static library
+After installing GSL, install the Python interface directly from GitHub::
+
+    python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+
+This builds and installs ``wlcovpy`` without a separate ``make`` command.
+
+The optional source build creates the executable ``wlcov``, the static library
 ``libwlcov.a``, and the Python extension ``wlcovpy``::
 
-    python3 -m pip install --user numpy Cython scipy
     make clean
     make PYTHON=python3 all
 

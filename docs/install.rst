@@ -1,8 +1,8 @@
 Installation
 ============
 
-``wlcov`` is distributed as source code.  A complete local installation builds
-the C executable, the static library, and the Cython extension module.
+The Python interface can be installed directly with ``pip``. A source checkout
+can additionally build the standalone C executable and static library.
 
 Prerequisites
 -------------
@@ -14,7 +14,7 @@ Required build tools:
 * a C compiler such as ``gcc``;
 * the `GNU Scientific Library`_ headers and libraries;
 * Python 3 with ``pip``;
-* ``numpy`` and ``Cython`` for the Python wrapper.
+* ``git`` when installing directly from GitHub.
 
 Recommended documentation tools:
 
@@ -22,15 +22,38 @@ Recommended documentation tools:
 * ``sphinx-rtd-theme``;
 * ``sphinx-prompt``.
 
-Build From Source
------------------
+Install the Python Interface
+----------------------------
 
-On Debian or Ubuntu systems with GSL installed in system locations, a typical
-build is:
+On Debian or Ubuntu, install the native compiler and GSL dependency:
 
 .. prompt:: bash
 
-   python3 -m pip install --user numpy Cython scipy
+   sudo apt-get install build-essential libgsl-dev
+
+Install ``wlcovpy`` directly from GitHub:
+
+.. prompt:: bash
+
+   python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+
+The pip build installs NumPy and SciPy when needed, generates the matching
+Cython declarations, builds the native library internally, and installs the
+``wlcovpy`` extension. No separate ``make`` command is required.
+
+From an existing source checkout, the equivalent command is:
+
+.. prompt:: bash
+
+   python3 -m pip install .
+
+Build the Native Executable
+---------------------------
+
+To also build the standalone C executable and static library:
+
+.. prompt:: bash
+
    make clean
    make PYTHON=python3 all
 

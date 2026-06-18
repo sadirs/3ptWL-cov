@@ -14,6 +14,7 @@ import subprocess as sbp
 import os.path as osp
 import sys
 
+
 def get_gsl_config(flag):
     try:
         res = subprocess.check_output(["gsl-config", flag], text=True)
@@ -281,6 +282,7 @@ wlcovpy_ext.cython_directives = {
 
 class build_ext(cython_build_ext):
     def run(self):
+        subprocess.check_call(["make", "clean"], cwd=root_folder)
         generate_cwlcovpy_pxd()
         subprocess.check_call(["make", "libwlcov.a"], cwd=root_folder)
         super().run()
@@ -289,7 +291,15 @@ setup(
     name='wlcovpy',
     version=VERSION,
     description='Python interface to the 3ptWL-cov covariance code',
+    long_description=open(os.path.join(root_folder, "README.md"), encoding="utf-8").read(),
+    long_description_content_type='text/markdown',
     url='https://github.com/sadirs/3ptWL-cov',
+    license='MIT',
+    python_requires='>=3.8',
+    install_requires=[
+        'numpy>=1.22',
+        'scipy>=1.8',
+    ],
     cmdclass={'build_ext': build_ext},
     ext_modules=[wlcovpy_ext],
 )

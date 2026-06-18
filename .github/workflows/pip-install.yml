@@ -1,0 +1,29 @@
+name: Pip install
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  install-and-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install native dependency
+        run: sudo apt-get update && sudo apt-get install -y libgsl-dev
+
+      - name: Install from the repository
+        run: python -m pip install .
+
+      - name: Run the Python smoke test
+        run: python docs/examples/python_wrapper.py

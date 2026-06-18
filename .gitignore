@@ -1,13 +1,15 @@
 build/
+dist/
 docs/_build/
 libwlcov.a
 python/cwlcovpy.pxd
 python/wlcovpy.c
-wlcov
+/wlcov
 wlcovpy.egg-info/
 *.egg-info/
 *.o
 *.so
+*.whl
 *.a
 
 *.pyc

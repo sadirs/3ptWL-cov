@@ -22,11 +22,17 @@ developer notes for future maintainers.
 Basic Usage
 -----------
 
-From a source checkout, build the executable and wrapper:
+After installing GSL, install the Python interface directly from GitHub:
 
 .. prompt:: bash
 
-   python3 -m pip install --user numpy Cython scipy
+   python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+
+No separate ``make`` step is needed for Python use. To build the standalone C
+executable from a source checkout:
+
+.. prompt:: bash
+
    make clean
    make PYTHON=python3 all
 

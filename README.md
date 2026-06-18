@@ -18,15 +18,33 @@ Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/lat
 
 ## Contributors
 
-- **Sadi Ramirez Solano** — [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
-- **Mario A. Rodriguez-Meza** — [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
+- **Sadi Ramirez Solano** - [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
+- **Mario A. Rodriguez-Meza** - [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
 
-## Build
+## Install with pip
 
-Install GSL first, then build from the repository root:
+Install the GSL development library first. On Debian or Ubuntu:
 
 ```bash
-python3 -m pip install --user numpy Cython scipy
+sudo apt-get install build-essential libgsl-dev
+```
+
+Then install the Python interface directly from GitHub:
+
+```bash
+python3 -m pip install "git+https://github.com/sadirs/3ptWL-cov.git"
+```
+
+This installs the `wlcovpy` module and compiles its native extension; no
+separate `make` command is needed. From an existing source checkout, use
+`python3 -m pip install .` instead. The standalone `wlcov` command-line
+executable is built separately with `make`, as described below.
+
+## Native C build (optional)
+
+Build the standalone executable and static library from a source checkout:
+
+```bash
 make clean
 make PYTHON=python3 all
 ```
@@ -37,13 +55,13 @@ The Makefile uses `gsl-config` by default.  For a custom GSL installation:
 make PYTHON=python3 GSL_INCLUDE=/path/to/gsl/include GSL_LIB=/path/to/gsl/lib all
 ```
 
-Build artifacts:
+Native build artifacts:
 
 - `wlcov`: command-line executable
 - `libwlcov.a`: static C library
 - `wlcovpy`: Cython extension installed by `pip install .`
 
-## Quick Run
+## Native CLI quick run
 
 ```bash
 ./wlcov clsfile=tests/input/Cls_ep2.txt rootDir=Output_quick \
