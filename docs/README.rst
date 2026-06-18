@@ -5,7 +5,8 @@ Project Team
 ------------
 
 :Authors: Sofia Samario-Nava and Alejandro Aviles
-:Contributors: Sadi Ramirez and Mario A. Rodriguez-Meza
+:Contributors: Sadi Ramirez Solano (sadi@icf.unam.mx) and
+   Mario A. Rodriguez-Meza
 :Repository: `Source code and issue tracking
    <https://github.com/sadirs/3ptWL-cov>`_
 

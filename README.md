@@ -16,10 +16,10 @@ Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/lat
 - **Alejandro Aviles**  
   aviles@icf.unam.mx
 
-Contributor:
+## Contributors
 
-- Mario A. Rodriguez-Meza  
-  marioalberto.rodriguezmeza@gmail.com
+- **Sadi Ramirez Solano** — [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
+- **Mario A. Rodriguez-Meza** — [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
 
 ## Build
 
