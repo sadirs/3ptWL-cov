@@ -1,12 +1,41 @@
 Quickstart
 ==========
 
-This page gives a short, tested workflow for running ``wlcov`` from a source
-checkout.  It uses the small test power-spectrum file included in the
-repository.
+This page gives short, tested paths for using the published Python package or
+running ``wlcov`` from a source checkout.
 
-Compile
--------
+Run Online in Google Colab
+--------------------------
+
+The quickest route needs no clone and no local compiler setup:
+
+.. image:: https://colab.research.google.com/assets/colab-badge.svg
+   :target: https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb
+   :alt: Open the covariance-matrix tutorial in Google Colab
+
+The notebook installs the system GSL dependency and the published
+``wlcovpy==1.0.1`` package, downloads inputs from the ``v1.0.1`` release, and
+checks that the compact covariance result is finite, symmetric, and ``6 x 6``.
+
+Install the Python Package Locally
+----------------------------------
+
+On Debian or Ubuntu:
+
+.. prompt:: bash
+
+   sudo apt-get update
+   sudo apt-get install build-essential libgsl-dev python3-dev
+   python3 -m pip install "wlcovpy==1.0.1"
+
+The Python package compiles its native extension during installation; a
+separate source checkout or ``make`` command is not required.
+
+Build From a Source Checkout
+----------------------------
+
+The remaining commands use the small test power-spectrum file included in the
+repository and also build the optional standalone executable.
 
 .. prompt:: bash
 
@@ -64,4 +93,6 @@ Next Steps
 * :doc:`user/inputs` explains the two-column ``C_ell`` input table.
 * :doc:`user/command-line` lists all runtime parameters.
 * :doc:`performance` explains ``ppp``, ``ellmin``, ``ellmax``, and OpenMP.
-* :doc:`tutorials/index` contains longer workflows.
+* :doc:`tutorials/covariance-matrix` documents the Colab and source-checkout
+  covariance workflows in detail.
+* :doc:`tutorials/index` contains the other longer workflows.
