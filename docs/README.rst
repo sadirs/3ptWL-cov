@@ -10,6 +10,9 @@ Project Team
 :Repository: `Source code and issue tracking
    <https://github.com/sadirs/3ptWL-cov>`_
 
+We acknowledge financial support from grants DGAPA-PAPIIT IA101825 and
+SECIHITI CBF2023-2024-162.
+
 Related Projects
 ----------------
 
