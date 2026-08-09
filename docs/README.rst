@@ -15,7 +15,7 @@ Authors
 **Other people who contributed to this code:**
 
 * **Sadi Ramirez Solano** (ICF-UNAM, Mexico) - `sadi@icf.unam.mx <mailto:sadi@icf.unam.mx>`_
-* **Mario A. Rodriguez-Meza** (ININ, Mexico) - `marioalberto.rodriguezmeza@gmail.com <mailto:marioalberto.rodriguezmeza@gmail.com>`_
+* **Mario A. Rodriguez-Meza** (ININ, Mexico)
 
 Related Projects
 ----------------

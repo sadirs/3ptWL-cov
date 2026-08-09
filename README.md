@@ -19,7 +19,7 @@ Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/lat
 **Other people who contributed to this code:**
 
 - **Sadi Ramirez Solano** (ICF-UNAM, Mexico) - [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
-- **Mario A. Rodriguez-Meza** (ININ, Mexico) - [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
+- **Mario A. Rodriguez-Meza** (ININ, Mexico)
 
 ## Install with pip
 
