@@ -1,17 +1,21 @@
 3ptWL-cov: Weak-Lensing Covariance Computation
 ==============================================
 
-Project Team
-------------
+3ptWL-cov is a C code for computing the Gaussian contribution to
+weak-lensing three-point covariance terms in a harmonic basis on the sphere
+within the Limber approximation.  The repository contains a command-line
+executable, a static C library, a Cython wrapper, and small Python examples.
 
-:Authors: Sofia Samario-Nava and Alejandro Aviles
-:Contributors: Sadi Ramirez Solano (sadi@icf.unam.mx) and
-   Mario A. Rodriguez-Meza
-:Repository: `Source code and issue tracking
-   <https://github.com/sadirs/3ptWL-cov>`_
+Authors
+-------
 
-We acknowledge financial support from grants DGAPA-PAPIIT IA101825 and
-SECIHITI CBF2023-2024-162.
+* **Sofia Samario-Nava** (ICF-UNAM, Mexico), ssamario@icf.unam.mx
+* **Alejandro Aviles** (ICF-UNAM, Mexico), aviles@icf.unam.mx
+
+**Other people who contributed to this code:**
+
+* **Sadi Ramirez Solano** (ICF-UNAM, Mexico) - `sadi@icf.unam.mx <mailto:sadi@icf.unam.mx>`_
+* **Mario A. Rodriguez-Meza** (ININ, Mexico) - `marioalberto.rodriguezmeza@gmail.com <mailto:marioalberto.rodriguezmeza@gmail.com>`_
 
 Related Projects
 ----------------
@@ -20,14 +24,6 @@ Related Projects
   three-point correlation functions using perturbative and halo-model methods.
 * `cTreeBalls <https://github.com/rodriguezmeza/cTreeBalls>`_: measures two- and
   three-point correlation functions from point catalogs and scalar fields.
-
-Introduction
-------------
-
-3ptWL-cov is a C code for computing the Gaussian contribution to
-weak-lensing three-point covariance terms in a harmonic basis on the sphere
-within the Limber approximation.  The repository contains a command-line
-executable, a static C library, a Cython wrapper, and small Python examples.
 
 Installing and Getting Started
 ------------------------------
@@ -53,31 +49,6 @@ To check that the code runs, type from the repository root::
 The run writes a used-values parameter file under ``Output_quick`` and prints
 the numerical integration results to standard output.
 
-Documentation Builds
---------------------
-
-From the repository root, install documentation dependencies and build the
-HTML, man, and PDF outputs::
-
-    python3 -m pip install --user -r docs/requirements.txt
-    cd docs
-
-    make html
-    make man
-    make latexpdf
-
-The generated artifacts are written to:
-
-* ``docs/_build/html/index.html``
-* ``docs/_build/man/wlcov.1``
-* ``docs/_build/latex/3ptWL-cov.pdf``
-
-The legacy hand-written man page is also kept in ``docs/man`` and can be
-converted to HTML with::
-
-    cd docs/man
-    ./makehtml.sh
-
 Configuration
 -------------
 
@@ -102,3 +73,9 @@ License
 research that results in publications, please cite Sofia Samario et al.,
 arXiv:2506.19811, and record the code version, compiler, GSL version, and
 runtime configuration used for the analysis.
+
+Acknowledgements
+----------------
+
+We acknowledge financial support from grants DGAPA-PAPIIT IA101825 and
+SECIHITI CBF2023-2024-162.
