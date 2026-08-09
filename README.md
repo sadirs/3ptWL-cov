@@ -16,10 +16,10 @@ Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/lat
 - **Sofia Samario-Nava** (ICF-UNAM, Mexico), ssamario@icf.unam.mx
 - **Alejandro Aviles** (ICF-UNAM, Mexico), aviles@icf.unam.mx
 
-## Other people who contributed to this code:
+**Other people who contributed to this code:**
 
-- **Sadi Ramirez Solano** - [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
-- **Mario A. Rodriguez-Meza** - [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
+- **Sadi Ramirez Solano** (ICF-UNAM, Mexico) - [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
+- **Mario A. Rodriguez-Meza** (ININ, Mexico) - [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
 
 ## Install with pip
 
@@ -36,6 +36,9 @@ Then install the Python interface from PyPI:
 python3 -m pip install wlcovpy
 ```
 
+For a no-checkout example, open the covariance tutorial in Colab:
+[Open in Colab](https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb)
+
 This installs the `wlcovpy` module and compiles its native extension; no
 separate `make` command is needed. For a version-matched reproduction of the
 current documentation, install `python3 -m pip install "wlcovpy==1.0.1"`.
@@ -44,17 +47,6 @@ To install the unreleased development version, use
 existing source checkout, use `python3 -m pip install .`. The standalone
 `wlcov` command-line executable is built separately with `make`, as described
 below.
-
-## Run the covariance tutorial in Colab
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sadirs/3ptWL-cov/blob/main/docs/examples/wlcovpy_covariance_colab.ipynb)
-
-The hosted notebook requires no repository checkout. It installs the native
-GSL build dependency and `wlcovpy==1.0.1`, downloads the input fixtures from
-the matching `v1.0.1` release tag, and reproduces the documented finite,
-symmetric `6 x 6` covariance matrix and diagnostic plots. The larger R2D2
-paper-data configuration is included behind an explicit opt-in switch because
-it performs many more native integrations.
 
 ## Native C build (optional)
 
