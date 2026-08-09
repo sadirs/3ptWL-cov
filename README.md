@@ -13,12 +13,10 @@ Documentation: [3ptWL-cov documentation](https://3ptwl-cov.readthedocs.io/en/lat
 
 ## Authors
 
-- **Sofia Samario-Nava**  
-  ssamario@icf.unam.mx
-- **Alejandro Aviles**  
-  aviles@icf.unam.mx
+- **Sofia Samario-Nava** (ICF-UNAM, Mexico), ssamario@icf.unam.mx
+- **Alejandro Aviles** (ICF-UNAM, Mexico), aviles@icf.unam.mx
 
-## Major contributors
+## Other people who contributed to this code:
 
 - **Sadi Ramirez Solano** - [sadi@icf.unam.mx](mailto:sadi@icf.unam.mx)
 - **Mario A. Rodriguez-Meza** - [marioalberto.rodriguezmeza@gmail.com](mailto:marioalberto.rodriguezmeza@gmail.com)
@@ -131,24 +129,6 @@ and the source-checkout notebook in `tests/notebooks/example.ipynb` for
 runnable examples. The source-checkout notebook saves its figures in
 `tests/notebooks/plots/`.
 
-## Documentation
-
-The documentation is built with Sphinx:
-
-```bash
-python3 -m pip install --user -r docs/requirements.txt
-cd docs
-make html
-make man
-make latexpdf
-```
-
-Generated outputs:
-
-- `docs/_build/html/index.html`
-- `docs/_build/man/wlcov.1`
-- `docs/_build/latex/3ptWL-cov.pdf`
-
 ## Configuration
 
 Main build switches live in `Makefile_settings`:
@@ -173,3 +153,7 @@ analysis.
 ## License
 
 3ptWL-cov is distributed under the MIT license.  See [LICENSE](LICENSE).
+
+## Acknowledgements
+
+We acknowledge financial support from grants DGAPA-PAPIIT IA101825 and SECIHITI CBF2023-2024-162
